@@ -3,14 +3,10 @@
 let recognition;
 let isRecording = false;
 
-document.getElementById('start-recording').addEventListener('click', () => {
+document.getElementById('record-button').addEventListener('click', () => {
     if (!isRecording) {
         startRecording();
-    }
-});
-
-document.getElementById('stop-recording').addEventListener('click', () => {
-    if (isRecording) {
+    } else {
         stopRecording();
     }
 });
@@ -20,7 +16,7 @@ function startRecording() {
     recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
-    recognition.continuous = true; // Allow continuous recognition
+    recognition.continuous = true;
 
     recognition.start();
 
@@ -32,15 +28,15 @@ function startRecording() {
     recognition.onstart = () => {
         isRecording = true;
         console.log("Recording started");
-        document.getElementById('start-recording').disabled = true;
-        document.getElementById('stop-recording').disabled = false;
+        toggleRecordButton(true);
     };
 
     recognition.onend = () => {
         if (isRecording) {
-            recognition.start(); // Restart recognition if still recording
+            recognition.start();
         } else {
             console.log("Recording stopped");
+            toggleRecordButton(false);
         }
     };
 
@@ -54,5 +50,16 @@ function stopRecording() {
     if (recognition) {
         isRecording = false;
         recognition.stop();
+    }
+}
+
+function toggleRecordButton(isRecording) {
+    const recordButton = document.getElementById('record-button');
+    if (isRecording) {
+        recordButton.classList.add('active');
+        recordButton.innerText = 'Stop Recording';
+    } else {
+        recordButton.classList.remove('active');
+        recordButton.innerText = 'Start Recording';
     }
 }
