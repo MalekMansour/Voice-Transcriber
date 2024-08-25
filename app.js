@@ -1,5 +1,3 @@
-// app.js
-
 let recognition;
 let isRecording = false;
 
