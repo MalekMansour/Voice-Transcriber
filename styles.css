@@ -1,16 +1,13 @@
+/* Apply a dark mode style */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
+    margin: 50px;
     background-color: #1e1e1e;
     color: #f1f1f1;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
+/* Add a blue gradient background */
 #transcript {
     margin-top: 20px;
     padding: 10px;
@@ -19,47 +16,53 @@ body {
     min-height: 150px;
     border-radius: 8px;
     color: #fff;
-    width: 80%;
-    max-width: 600px;
 }
 
+/* Style the record button */
 .record-btn {
     width: 100px;
     height: 100px;
     border: none;
     border-radius: 50%;
-    background-color: red;
+    background-color: #ff0000;
     cursor: pointer;
     outline: none;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s ease;
+    position: relative;
 }
 
-.animation-container {
+.record-btn.active .container {
+    display: flex;
+}
+
+/* Hide the animation container when not active */
+.container {
     display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-}
-
-.dot {
     --uib-size: 60px;
     --uib-color: black;
     --uib-speed: 2.6s;
     --uib-dot-size: calc(var(--uib-size) * 0.23);
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--uib-size);
+    height: var(--uib-dot-size);
+    filter: url('#uib-jelly-ooze');
+}
+
+.dot {
     position: absolute;
+    top: calc(50% - var(--uib-dot-size) / 2);
+    left: calc(0px - var(--uib-dot-size) / 2);
     display: block;
     height: var(--uib-dot-size);
     width: var(--uib-dot-size);
     border-radius: 50%;
     background-color: var(--uib-color);
     animation: stream var(--uib-speed) linear infinite both;
+    transition: background-color 0.3s ease;
 }
 
 .dot:nth-child(2) {
@@ -93,24 +96,6 @@ body {
     }
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-    }
-}
-
-h2 {
-    color: #60efff;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
 /* Style the clear button */
 .clear-btn {
     margin-top: 20px;
@@ -126,4 +111,11 @@ h2 {
 
 .clear-btn:hover {
     background-color: #c9302c;
+}
+
+/* Style the header */
+h1 {
+    color: #60efff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
