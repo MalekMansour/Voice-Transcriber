@@ -48,7 +48,6 @@ body {
     height: 60px;
 }
 
-/* Loader animation */
 .dot {
     --uib-size: 60px;
     --uib-color: black;
