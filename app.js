@@ -1,6 +1,9 @@
 let recognition;
 let isRecording = false;
 
+// js
+
+
 document.getElementById('record-button').addEventListener('click', () => {
     if (!isRecording) {
         startRecording();
