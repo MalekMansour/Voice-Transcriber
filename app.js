@@ -60,6 +60,6 @@ function toggleRecordButton(isRecording) {
         animationContainer.style.display = 'block';
     } else {
         recordButton.classList.remove('active');
-        animationContainer.style.display = 'none'; // Hide the animation
+        animationContainer.style.display = 'none'; 
     }
 }
