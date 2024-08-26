@@ -1,9 +1,6 @@
 let recognition;
 let isRecording = false;
 
-// js
-
-
 document.getElementById('record-button').addEventListener('click', () => {
     if (!isRecording) {
         startRecording();
@@ -56,11 +53,13 @@ function stopRecording() {
 
 function toggleRecordButton(isRecording) {
     const recordButton = document.getElementById('record-button');
+    const animationContainer = document.querySelector('.animation-container');
+
     if (isRecording) {
         recordButton.classList.add('active');
-        recordButton.innerText = 'Stop Recording';
+        animationContainer.style.display = 'block'; // Show the animation
     } else {
         recordButton.classList.remove('active');
-        recordButton.innerText = 'Start Recording';
+        animationContainer.style.display = 'none'; // Hide the animation
     }
 }
