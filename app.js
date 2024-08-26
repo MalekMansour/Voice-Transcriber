@@ -57,7 +57,7 @@ function toggleRecordButton(isRecording) {
 
     if (isRecording) {
         recordButton.classList.add('active');
-        animationContainer.style.display = 'block'; // Show the animation
+        animationContainer.style.display = 'block';
     } else {
         recordButton.classList.remove('active');
         animationContainer.style.display = 'none'; // Hide the animation
