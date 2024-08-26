@@ -2,9 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 50px;
+    margin: 0;
     background-color: #1e1e1e;
     color: #f1f1f1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Add a blue gradient background */
@@ -16,6 +21,8 @@ body {
     min-height: 150px;
     border-radius: 8px;
     color: #fff;
+    width: 80%;
+    max-width: 600px;
 }
 
 /* Style the record button */
@@ -24,49 +31,40 @@ body {
     height: 100px;
     border: none;
     border-radius: 50%;
-    background-color: #0051a3;
-    color: white;
-    font-size: 16px;
+    background-color: red;
     cursor: pointer;
     outline: none;
     position: relative;
-    transition: background-color 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s ease;
 }
 
-.record-btn.active {
-    background-color: #003366;
-    animation: pulse 1.5s infinite;
+/* Hide the animation by default */
+.animation-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
 }
 
 /* Loader animation */
-.container {
+.dot {
     --uib-size: 60px;
     --uib-color: black;
     --uib-speed: 2.6s;
     --uib-dot-size: calc(var(--uib-size) * 0.23);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: var(--uib-size);
-    height: var(--uib-dot-size);
-    filter: url('#uib-jelly-ooze');
-}
-
-.dot {
     position: absolute;
-    top: calc(50% - var(--uib-dot-size) / 2);
-    left: calc(0px - var(--uib-dot-size) / 2);
     display: block;
     height: var(--uib-dot-size);
     width: var(--uib-dot-size);
     border-radius: 50%;
     background-color: var(--uib-color);
     animation: stream var(--uib-speed) linear infinite both;
-    transition: background-color 0.3s ease;
 }
 
 .dot:nth-child(2) {
@@ -103,19 +101,19 @@ body {
 /* Cool pulse animation */
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(0, 81, 163, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 20px rgba(0, 81, 163, 0);
+        box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0, 81, 163, 0);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
     }
 }
 
 /* Style the header */
-h1 {
+h2 {
     color: #60efff;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
