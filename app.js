@@ -63,3 +63,7 @@ function toggleRecordButton(isRecording) {
         animationContainer.style.display = 'none'; 
     }
 }
+
+document.getElementById('clear-button').addEventListener('click', () => {
+    document.getElementById('text-output').innerText = '';
+});
