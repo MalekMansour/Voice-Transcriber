@@ -53,14 +53,21 @@ function stopRecording() {
 
 function toggleRecordButton(isRecording) {
     const recordButton = document.getElementById('record-button');
-    const animationContainer = document.querySelector('.animation-container');
+    const container = document.createElement('div');
+    container.className = 'container';
+
+    for (let i = 0; i < 5; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        container.appendChild(dot);
+    }
 
     if (isRecording) {
+        recordButton.appendChild(container);
         recordButton.classList.add('active');
-        animationContainer.style.display = 'block';
     } else {
+        recordButton.innerHTML = '';
         recordButton.classList.remove('active');
-        animationContainer.style.display = 'none'; 
     }
 }
 
