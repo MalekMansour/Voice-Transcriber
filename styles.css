@@ -1,3 +1,4 @@
+/* Apply a dark mode style */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -6,6 +7,7 @@ body {
     color: #f1f1f1;
 }
 
+/* Add a blue gradient background */
 #transcript {
     margin-top: 20px;
     padding: 10px;
@@ -16,12 +18,13 @@ body {
     color: #fff;
 }
 
+/* Style the record button */
 .record-btn {
     width: 100px;
     height: 100px;
     border: none;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: #7e0f0f;
     cursor: pointer;
     outline: none;
     display: flex;
