@@ -16,6 +16,23 @@ body {
     min-height: 150px;
     border-radius: 8px;
     color: #fff;
+    position: relative;
+}
+
+/* Style the copy button */
+.copy-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.copy-btn img {
+    width: 30px;
+    height: 30px;
 }
 
 /* Style the record button */
@@ -34,10 +51,6 @@ body {
     position: relative;
 }
 
-.record-btn.active .container {
-    display: flex;
-}
-
 /* Hide the animation container when not active */
 .container {
     display: none;
@@ -51,50 +64,6 @@ body {
     width: var(--uib-size);
     height: var(--uib-dot-size);
     filter: url('#uib-jelly-ooze');
-}
-
-.dot {
-    position: absolute;
-    top: calc(50% - var(--uib-dot-size) / 2);
-    left: calc(0px - var(--uib-dot-size) / 2);
-    display: block;
-    height: var(--uib-dot-size);
-    width: var(--uib-dot-size);
-    border-radius: 50%;
-    background-color: var(--uib-color);
-    animation: stream var(--uib-speed) linear infinite both;
-    transition: background-color 0.3s ease;
-}
-
-.dot:nth-child(2) {
-    animation-delay: calc(var(--uib-speed) * -0.2);
-}
-
-.dot:nth-child(3) {
-    animation-delay: calc(var(--uib-speed) * -0.4);
-}
-
-.dot:nth-child(4) {
-    animation-delay: calc(var(--uib-speed) * -0.6);
-}
-
-.dot:nth-child(5) {
-    animation-delay: calc(var(--uib-speed) * -0.8);
-}
-
-@keyframes stream {
-    0%,
-    100% {
-        transform: translateX(0) scale(0);
-    }
-
-    50% {
-        transform: translateX(calc(var(--uib-size) * 0.5)) scale(1);
-    }
-
-    99.999% {
-        transform: translateX(calc(var(--uib-size))) scale(0);
-    }
 }
 
 /* Style the clear button */
@@ -112,6 +81,23 @@ body {
 
 .clear-btn:hover {
     background-color: #c9302c;
+}
+
+/* Style the download button */
+.download-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5bc0de;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #31b0d5;
 }
 
 /* Style the header */
