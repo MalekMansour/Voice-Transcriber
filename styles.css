@@ -1,4 +1,3 @@
-/* Apply a dark mode style */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -7,7 +6,6 @@ body {
     color: #f1f1f1;
 }
 
-/* Add a blue gradient background */
 #transcript {
     margin-top: 20px;
     padding: 10px;
@@ -19,7 +17,6 @@ body {
     position: relative;
 }
 
-/* Style the copy button */
 .copy-btn {
     position: absolute;
     bottom: 10px;
@@ -35,7 +32,6 @@ body {
     height: 30px;
 }
 
-/* Style the record button */
 .record-btn {
     width: 100px;
     height: 100px;
@@ -49,24 +45,26 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
-/* Hide the animation container when not active */
-.container {
-    display: none;
-    --uib-size: 60px;
-    --uib-color: black;
-    --uib-speed: 2.6s;
-    --uib-dot-size: calc(var(--uib-size) * 0.23);
-    position: relative;
-    align-items: center;
-    justify-content: space-between;
-    width: var(--uib-size);
-    height: var(--uib-dot-size);
-    filter: url('#uib-jelly-ooze');
+.record-btn.active {
+    animation: pulse 1s infinite;
+    filter: url(#uib-jelly-ooze);
 }
 
-/* Style the clear button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .clear-btn {
     margin-top: 20px;
     padding: 10px 20px;
@@ -83,7 +81,6 @@ body {
     background-color: #c9302c;
 }
 
-/* Style the download button */
 .download-btn {
     margin-top: 10px;
     padding: 10px 20px;
@@ -100,7 +97,6 @@ body {
     background-color: #31b0d5;
 }
 
-/* Style the header */
 h1 {
     color: #60efff;
     font-size: 2.5rem;
