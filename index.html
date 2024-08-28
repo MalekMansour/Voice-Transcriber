@@ -24,53 +24,35 @@
 
     <button id="clear-button" class="clear-btn">Clear Transcript</button>
     <button id="download-btn" class="download-btn">Download Transcript</button>
-    <button id="download-recording-btn" class="download-btn">Download Recording</button>
 
     <script src="app.js"></script>
     <script>
-        let mediaRecorder;
-        let audioChunks = [];
+        document.getElementById('download-btn').addEventListener('click', function() {
+            // Get the transcript text
+            const transcriptText = document.getElementById('transcript').innerText;
         
-        // Function to start recording
-        function startRecording() {
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    mediaRecorder = new MediaRecorder(stream);
-                    mediaRecorder.start();
+            // Create a Blob from the transcript text
+            const blob = new Blob([transcriptText], { type: 'text/plain' });
         
-                    mediaRecorder.ondataavailable = function(event) {
-                        audioChunks.push(event.data);
-                    };
+            // Create a link element
+            const link = document.createElement('a');
         
-                    mediaRecorder.onstop = function() {
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                        const audioUrl = URL.createObjectURL(audioBlob);
+            // Set the download attribute with a filename
+            link.download = 'transcript.txt';
         
-                        // Enable download button and attach the audio URL
-                        const downloadBtn = document.getElementById('download-recording-btn');
-                        downloadBtn.href = audioUrl;
-                        downloadBtn.download = 'recording.wav';
-                        downloadBtn.disabled = false;
+            // Create a URL for the Blob and set it as the href attribute
+            link.href = window.URL.createObjectURL(blob);
         
-                        // Clear the audio chunks for the next recording
-                        audioChunks = [];
-                    };
-                });
-        }
+            // Append the link to the document body temporarily
+            document.body.appendChild(link);
         
-        // Function to stop recording
-        function stopRecording() {
-            mediaRecorder.stop();
-        }
+            // Programmatically click the link to trigger the download
+            link.click();
         
-        // Event listeners for the record button
-        document.getElementById('record-btn').addEventListener('mousedown', startRecording);
-        document.getElementById('record-btn').addEventListener('mouseup', stopRecording);
-        
-        // Disable the download button initially
-        document.getElementById('download-recording-btn').disabled = true;
-        </script>
-        
+            // Remove the link from the document
+            document.body.removeChild(link);
+        });
+    </script>
         
 </body>
 </html>
