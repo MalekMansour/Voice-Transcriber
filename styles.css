@@ -22,6 +22,7 @@ body {
 .record-btn {
     width: 100px;
     height: 100px;
+    margin-left: 46.5%;
     border: none;
     border-radius: 50%;
     background-color: #991b1b;
