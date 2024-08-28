@@ -53,11 +53,17 @@ body {
     border-radius: 50%;
     background: #000;
     box-shadow: 0 0 0 0 #0004;
-    animation: l2 1.5s infinite linear;
     position: relative;
-  }
-  .loader:before,
-  .loader:after {
+    display: none; 
+}
+
+.record-btn.active .loader {
+    display: inline-grid; 
+    animation: l2 1.5s infinite linear; 
+}
+
+.loader:before,
+.loader:after {
     content: "";
     position: absolute;
     inset: 0;
@@ -65,27 +71,14 @@ body {
     box-shadow: 0 0 0 0 #0004;
     animation: inherit;
     animation-delay: -0.5s;
-  }
-  .loader:after {
-    animation-delay: -1s;
-  }
-  @keyframes l2 {
-      100% {box-shadow: 0 0 0 40px #0000}
-  }
-
+}
 
 .loader:after {
-    scale: -1 1;
-    animation-delay: -.75s;
+    animation-delay: -1s;
 }
 
-@keyframes l16 {
-    50% {clip-path: inset(0)}
-    to {clip-path: inset(0 0 0 100%)}
-}
-
-.record-btn.active .loader {
-    display: inline-grid;
+@keyframes l2 {
+    100% {box-shadow: 0 0 0 40px #0000}
 }
 
 .clear-btn {
