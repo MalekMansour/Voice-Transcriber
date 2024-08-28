@@ -1,5 +1,7 @@
 let recognition;
 let isRecording = false;
+let audioChunks = [];
+let mediaRecorder;
 
 document.getElementById('record-button').addEventListener('click', () => {
     if (!isRecording) {
@@ -27,6 +29,7 @@ function startRecording() {
         isRecording = true;
         console.log("Recording started");
         toggleRecordButton(true);
+        startAudioRecording();
     };
 
     recognition.onend = () => {
@@ -49,6 +52,27 @@ function stopRecording() {
         isRecording = false;
         recognition.stop();
     }
+    if (mediaRecorder) {
+        mediaRecorder.stop();
+    }
+}
+
+function startAudioRecording() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = event => {
+            audioChunks.push(event.data);
+        };
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const downloadButton = document.getElementById('download-button');
+            downloadButton.href = audioUrl;
+            downloadButton.download = 'recording.wav';
+            audioChunks = [];
+        };
+        mediaRecorder.start();
+    }).catch(err => console.error('Audio recording error:', err));
 }
 
 function toggleRecordButton(isRecording) {
@@ -73,4 +97,11 @@ function toggleRecordButton(isRecording) {
 
 document.getElementById('clear-button').addEventListener('click', () => {
     document.getElementById('text-output').innerText = '';
+});
+
+document.getElementById('copy-button').addEventListener('click', () => {
+    const textOutput = document.getElementById('text-output').innerText;
+    navigator.clipboard.writeText(textOutput).then(() => {
+        alert('Transcript copied to clipboard!');
+    }).catch(err => console.error('Copy failed:', err));
 });
