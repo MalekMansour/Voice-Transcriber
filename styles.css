@@ -48,46 +48,44 @@ body {
 }
 
 .loader {
-    display: none; /* Initially hidden */
-    width: 50px;
+    width: 20px;
     aspect-ratio: 1;
-    padding: 10px;
-    box-sizing: border-box;
-    display: grid;
-    background: #fff;
-    filter: blur(5px) contrast(10);
-    mix-blend-mode: darken;
-}
-
-.loader:before,
-.loader:after {
-    content: "";
-    grid-area: 1/1;
-    background:
-        linear-gradient(#000 0 0) left,
-        linear-gradient(#000 0 0) right;
-    background-size: 20px 40px;
-    background-origin: content-box;
-    background-repeat: no-repeat;
-}
-
-.loader:after {
-    height: 20px;
-    width:  20px;
-    margin: auto 0;
     border-radius: 50%;
     background: #000;
-    animation: l10 1s infinite;
+    box-shadow: 0 0 0 0 #0004;
+    animation: l2 1.5s infinite linear;
+    position: relative;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 #0004;
+    animation: inherit;
+    animation-delay: -0.5s;
+  }
+  .loader:after {
+    animation-delay: -1s;
+  }
+  @keyframes l2 {
+      100% {box-shadow: 0 0 0 40px #0000}
+  }
+
+
+.loader:after {
+    scale: -1 1;
+    animation-delay: -.75s;
 }
 
-@keyframes l10 {
-    90%, 100% {
-        transform: translate(300%);
-    }
+@keyframes l16 {
+    50% {clip-path: inset(0)}
+    to {clip-path: inset(0 0 0 100%)}
 }
 
 .record-btn.active .loader {
-    display: block; /* Show the loader when the record button is active */
+    display: inline-grid;
 }
 
 .clear-btn {
