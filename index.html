@@ -28,28 +28,13 @@
     <script src="app.js"></script>
     <script>
         document.getElementById('download-btn').addEventListener('click', function() {
-            // Get the transcript text
             const transcriptText = document.getElementById('transcript').innerText;
-        
-            // Create a Blob from the transcript text
             const blob = new Blob([transcriptText], { type: 'text/plain' });
-        
-            // Create a link element
             const link = document.createElement('a');
-        
-            // Set the download attribute with a filename
             link.download = 'transcript.txt';
-        
-            // Create a URL for the Blob and set it as the href attribute
             link.href = window.URL.createObjectURL(blob);
-        
-            // Append the link to the document body temporarily
             document.body.appendChild(link);
-        
-            // Programmatically click the link to trigger the download
             link.click();
-        
-            // Remove the link from the document
             document.body.removeChild(link);
         });
     </script>
