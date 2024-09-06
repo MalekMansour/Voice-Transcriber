@@ -19,3 +19,9 @@ This project is a simple web-based Voice Recorder and Transcriber application. I
 - **JavaScript**: Implementing functionality for voice recording, transcription, and UI interactions.
 - **Web Speech API**: For speech recognition and transcription.
 - **MediaRecorder API**: For recording audio.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/voice-recorder-transcriber.git
