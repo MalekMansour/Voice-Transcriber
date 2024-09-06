@@ -1,4 +1,3 @@
-# Voice-Transcriber
-Voice Recorder and Transcriber using Javascript and HTML
+# Voice Recorder and Transcriber
 
-
+![Screenshot](Screenshot1.png)
