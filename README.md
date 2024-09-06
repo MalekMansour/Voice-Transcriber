@@ -18,3 +18,4 @@ This project is a simple web-based Voice Recorder and Transcriber application. I
 - **CSS**: Styling the application, including dark mode and animations.
 - **JavaScript**: Implementing functionality for voice recording, transcription, and UI interactions.
 - **Web Speech API**: For speech recognition and transcription.
+- **MediaRecorder API**: For recording audio.
