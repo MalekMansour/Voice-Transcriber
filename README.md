@@ -14,3 +14,4 @@ This project is a simple web-based Voice Recorder and Transcriber application. I
 - **Download Recording**: Download a text file of the transcript.
 
 ## Technologies Used
+- **HTML**: Markup language for the structure of the web application.
