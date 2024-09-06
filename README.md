@@ -11,3 +11,4 @@ This project is a simple web-based Voice Recorder and Transcriber application. I
 - **Voice Transcription**: Automatically transcribe recorded speech into text.\
 - **Clear Transcript**: Clear the transcribed text with a button.
 - **Copy to Clipboard**: Copy the transcribed text to the clipboard using a button.
+- **Download Recording**: Download a text file of the transcript.
