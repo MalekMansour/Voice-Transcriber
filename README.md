@@ -1,3 +1,7 @@
 # Voice Recorder and Transcriber
 
 ![Screenshot](Screenshot1.png)
+
+## Description
+
+This project is a simple web-based Voice Recorder and Transcriber application. It allows users to record their voice, transcribe the spoken content into text, and provides functionality to clear the transcript, copy the text to the clipboard, and download the recording.
