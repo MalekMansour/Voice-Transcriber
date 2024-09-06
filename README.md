@@ -16,3 +16,4 @@ This project is a simple web-based Voice Recorder and Transcriber application. I
 ## Technologies Used
 - **HTML**: Markup language for the structure of the web application.
 - **CSS**: Styling the application, including dark mode and animations.
+- **JavaScript**: Implementing functionality for voice recording, transcription, and UI interactions.
