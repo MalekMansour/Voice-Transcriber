@@ -24,4 +24,4 @@ This project is a simple HTML Web Voice Recorder and Transcriber application. It
 
 1. Clone the repository:
    ```bash
-   git clone 
+   git clone https://github.com/MalekMansour/Voice-Transcriber.git
