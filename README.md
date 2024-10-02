@@ -1,4 +1,5 @@
 # Voice Recorder and Transcriber
+* Author: Malek Mansour
 
 ![Screenshot](Screenshot1.png)
 
